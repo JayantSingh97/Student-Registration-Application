@@ -1,0 +1,377 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    margin-top: 58px;
+    font-size: 14px;
+    overflow: auto;
+    font-family: wf_segoe-ui,Helvetica Neue,Helvetica,Arial,Verdana;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+a {
+    color: #212529;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.card-img-top {
+    height: 60px;
+    width: 180px
+}
+
+.zoom {
+    transition: transform .5s; /* Animation */
+}
+
+.zoom-custom {
+    transition: transform .5s; /* Animation */
+}
+
+    .zoom-custom:hover {
+        transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    }
+
+
+.zoom:hover {
+    margin-left: 10%;
+    transform: scale(1.9); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    width: 50%;
+}
+
+.card-img-top-custom {
+    height: 132px;
+}
+
+
+.table {
+}
+
+
+
+
+.card {
+    margin-top: 20px;
+}
+
+
+
+.list-group-item {
+    border: none;
+}
+
+.loader {
+    text-align: -webkit-center;
+    text-align: -webkit-center;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(63, 65, 68, 0.63);
+    overflow-x: hidden;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    color: white;
+    font-size: x-large;
+}
+
+.loaderalignment {
+    margin-top: 15pc;
+}
+
+
+.fond {
+    position: absolute;
+    padding-top: 85px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.style_prevu_kit {
+    display: inline-block;
+    border: 0;
+    width: 179px;
+    height: 62px;
+    position: relative;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1);
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1);
+    transition: all 200ms ease-in;
+    transform: scale(1);
+    border-radius: 2px;
+}
+
+    .style_prevu_kit:hover {
+        box-shadow: 0px 0px 150px whitesmoke;
+        z-index: 2;
+        -webkit-transition: all 200ms ease-in;
+        -webkit-transform: scale(4.9);
+        -ms-transition: all 200ms ease-in;
+        -ms-transform: scale(4.9);
+        -moz-transition: all 200ms ease-in;
+        -moz-transform: scale(6.5);
+        transition: all 200ms ease-in;
+        transform: scale(4.9);
+        text-align: center;
+        text-align: -webkit-center;
+        border-radius: 2px;
+    }
+
+.imagcontiner {
+    overflow: auto;
+}
+
+.table {
+    border: 1px solid;
+    border-color: rgb(51, 104, 217);
+}
+
+.tr-custom {
+    background: rgb(51, 104, 217);
+    color: white;
+}
+
+
+.table-custom {
+    border: 1px solid rgb(51, 104, 217);
+}
+
+.slidenav-custom {
+    background-color: #ffffff !important;
+    border-left: 2px solid red;
+    border-right: 2px solid #cacaca;
+    position: fixed;
+    height: 90%;
+}
+
+.table-dark-custom {
+    color: #fff;
+    background-color: #343a40;
+}
+
+.nav-linlk {
+    display: block;
+    padding: .9rem 1rem;
+    font-weight: 500;
+    color: #333;
+    font-size: unset;
+    padding: 18px;
+}
+
+.sidebar .nav-link {
+    font-weight: 200;
+    color: #333;
+    font-size: unset;
+    padding: 18px;
+    flex: 1 1 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.9225rem;
+    font-weight: 500;
+    line-height: 1rem;
+}
+
+    .sidebar .nav-link:hover {
+        color: dodgerblue;
+    }
+
+    .sidebar .nav-link > .fa-lock:hover {
+        color: red;
+    }
+
+li {
+    text-align: -webkit-match-parent;
+}
+
+.nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.display-4 {
+    font-size: 2.5rem;
+}
+
+.fa-custom {
+    font-size: 22px;
+    text-align-last: justify;
+    text-align: left;
+}
+
+
+.card-img-overlay {
+    width: 500px;
+    height: 500px;
+}
+
+
+.skip-navigation {
+    include sr-only;
+    include sr-only-focusable;
+}
+
+.media {
+    margin-top: 30px;
+}
+
+.navlink-custom {
+    color: #df90b6;
+}
+
+.bg-primary-second {
+    background: rgb(51, 104, 217);
+    color: white;
+}
+
+@media screen and (max-width:500px) {
+    .table > tbody > tr {
+        display: grid;
+        text-align: center;
+    }
+
+    .card-img-top {
+        height: 159px;
+        width: 100%;
+    }
+    .tr-custom {
+        display:none;
+    }
+    .btn {
+        margin-top: 10px;
+    }
+    /*.col-sm-6 {
+        text-align: end;
+       
+    }*/
+
+    .col-sm-12 {
+        text-align: start;
+    }
+    .sidebar-sticky {
+        display: none;
+    }
+}
+
+.container-custom {
+    max-width:85%;
+}
+
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar:hover{
+    width: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+.slidenav-custom {
+    overflow:auto;
+}
+
+.registation-card {
+    margin-top:100px;
+}
+
+.form-control {
+    font-size:14px;
+}
+
+.table-margin {
+    margin-top:40px;
+}
+
+.dahboard-top-alignment {
+    margin-top: 85px;
+}
+.custom-font {
+    font-weight: 900;
+}
+
+.card-img-top {
+    height: 119px;
+    width: 221px;
+}
+
+.card-img-custom {
+    width: 127px;
+    border-radius: 5px;
+    height: 42px;
+}
+
+
+.card-frame {
+    max-height:100%;
+    width:auto;
+}

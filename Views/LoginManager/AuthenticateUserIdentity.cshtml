@@ -1,0 +1,78 @@
+﻿@model EducareApplication.EducareService.ClaimUserIdentity
+@{
+    ViewBag.Title = "AuthenticateUserIdentity";
+}
+
+<div class="col-lg-6 offset-lg-3" style="margin-top:100px;">
+    <div class="card container">
+        <div class="card-body">
+            <h4 class="card-title text-center"><span class="fa fa-lock"></span> Login Now</h4>
+            <div class="dropdown-divider"></div>
+            @if (ViewBag.LoginFailed != null)
+            {
+                <div class="alert alert-danger text-center">
+                    <div class="alert-heading"><strong><span class="fa fa-desktop text-capitalize"></span> System Alert</strong></div>
+                    <div class="text-capitalize"> @ViewBag.LoginFailed</div>
+                </div>
+            }
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken();
+                <div class="form-group">
+                    <label for="username"><span class="fa fa-user"></span> @Html.DisplayNameFor(u => u.username)</label>
+                    @Html.TextBoxFor(u => u.username, new { @class = "form-control", @id = "username" })
+                    @Html.ValidationMessageFor(p => p.username, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label for="Password"><span class="fa fa-lock"></span> @Html.DisplayNameFor(u => u.Password)</label>
+                    @Html.PasswordFor(u => u.Password, new { @class = "form-control", @id = "password" })
+                    @Html.ValidationMessageFor(p => p.Password, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label for="Role"><span class="fa fa-database"></span> @Html.DisplayNameFor(u => u.Role)</label>
+                    <select class="form-control" name="Role" id="role">
+                        <option value="NA" selected="selected">Select Your Role</option>
+                        <option value="Admin">I am an admin</option>
+                        <option value="Student">I am a student</option>
+                    </select>
+                    <span id="roleerror" style="display:none;" class="text-danger">Please select your Role.</span>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" checked="checked" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-primary" id="loginbtn"><span class="fa fa-lock"></span> Login</button>
+            }
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<script>
+    $("#loginbtn").click(function () {
+        var form = new Object();
+        form.username = $("#username").val();
+        form.Password = $("#password").val();
+        form.role = $("#role").val();
+        if (form.username.length != 0 && form.Password.length != 0) {
+            if (form.role === "NA") {
+                $("#roleerror").show();
+                return false;
+            }
+        }
+        if (form.username.length >= 3 && form.Password.length != 0 && form.role !== "NA") {
+            $("#loginbtn").html("Authenticating...");
+        }
+        
+       
+    });
+
+    $("#role").mouseout(function () {
+        if ($("#role").val() !== "NA") {
+            $("#roleerror").hide();
+        }
+    });
+</script>

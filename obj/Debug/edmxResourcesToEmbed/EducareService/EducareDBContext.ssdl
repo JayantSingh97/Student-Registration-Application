@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EduCareServerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AdminTable">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AdmissionTable">
+    <Key>
+      <PropertyRef Name="STU_ID" />
+    </Key>
+    <Property Name="STU_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="STU_NAME" Type="nvarchar(max)" />
+    <Property Name="STU_F_NAME" Type="nvarchar(max)" />
+    <Property Name="STU_PAR_ADD" Type="nvarchar(max)" />
+    <Property Name="STU_CURR_ADD" Type="nvarchar(max)" />
+    <Property Name="STU_CITY" Type="nvarchar(max)" />
+    <Property Name="STU_STATE" Type="nvarchar(max)" />
+    <Property Name="STU_COUNTRY" Type="nvarchar(max)" />
+    <Property Name="STU_NATI" Type="nvarchar(max)" />
+    <Property Name="STU_GENDER" Type="nvarchar(max)" />
+    <Property Name="STU_QUAL" Type="nvarchar(max)" />
+    <Property Name="STU_COURSE" Type="nvarchar(max)" />
+    <Property Name="STU_PHOTO" Type="nvarchar(max)" />
+    <Property Name="STU_MOBILE" Type="nvarchar(max)" />
+    <Property Name="STU_DOB" Type="nvarchar(max)" />
+    <Property Name="STU_DOA" Type="nvarchar(max)" />
+    <Property Name="STU_HOB" Type="nvarchar(max)" />
+    <Property Name="STU_HPASS_Y" Type="nvarchar(max)" />
+    <Property Name="STU_HPER" Type="nvarchar(max)" />
+    <Property Name="STU_HUNI" Type="nvarchar(max)" />
+    <Property Name="STU_HROLL" Type="nvarchar(max)" />
+    <Property Name="STU_IPASS_Y" Type="nvarchar(max)" />
+    <Property Name="STU_IPER" Type="nvarchar(max)" />
+    <Property Name="STU_IUNI" Type="nvarchar(max)" />
+    <Property Name="STU_IROLL" Type="nvarchar(max)" />
+    <Property Name="ImgURL" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="CityTable">
+    <Key>
+      <PropertyRef Name="CITY_ID" />
+    </Key>
+    <Property Name="CITY_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="S_C_ID" Type="nvarchar(max)" />
+    <Property Name="S_s_ID" Type="nvarchar(max)" />
+    <Property Name="CITY_NAME" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="CountryTable">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="CourseTable">
+    <Key>
+      <PropertyRef Name="COURSE_ID" />
+    </Key>
+    <Property Name="COURSE_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="s_c_id" Type="nvarchar(max)" />
+    <Property Name="COURSE_NAME" Type="nvarchar(max)" />
+    <Property Name="COURSE_FEES" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="FeesTable">
+    <Key>
+      <PropertyRef Name="FEES_ID" />
+    </Key>
+    <Property Name="FEES_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FEES_ST_ID" Type="nvarchar(max)" />
+    <Property Name="FEES_AMOUNT" Type="nvarchar(max)" />
+    <Property Name="FEES_DATE" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="QualificationTable">
+    <Key>
+      <PropertyRef Name="QualificationID" />
+    </Key>
+    <Property Name="QualificationID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Qualification" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="StateTable">
+    <Key>
+      <PropertyRef Name="STATE_ID" />
+    </Key>
+    <Property Name="STATE_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CO_S_ID" Type="nvarchar(max)" />
+    <Property Name="STATE_NAME" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="StudentTable">
+    <Key>
+      <PropertyRef Name="f_name" />
+    </Key>
+    <Property Name="f_name" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="l_name" Type="nvarchar(max)" />
+    <Property Name="email" Type="nvarchar(max)" />
+    <Property Name="mobile" Type="nvarchar(max)" />
+    <Property Name="gender" Type="nvarchar(max)" />
+    <Property Name="u_id" Type="nvarchar(max)" />
+    <Property Name="password" Type="nvarchar(max)" />
+    <Property Name="c_password" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityContainer Name="EduCareServerModelStoreContainer">
+    <EntitySet Name="AdminTable" EntityType="Self.AdminTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdmissionTable" EntityType="Self.AdmissionTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CityTable" EntityType="Self.CityTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CountryTable" EntityType="Self.CountryTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CourseTable" EntityType="Self.CourseTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FeesTable" EntityType="Self.FeesTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QualificationTable" EntityType="Self.QualificationTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StateTable" EntityType="Self.StateTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentTable" EntityType="Self.StudentTable" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EduCareServerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AdminTable">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AdmissionTable">
+    <Key>
+      <PropertyRef Name="STU_ID" />
+    </Key>
+    <Property Name="STU_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="STU_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STU_F_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STU_PAR_ADD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STU_CURR_ADD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STU_CITY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STU_STATE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STU_COUNTRY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STU_NATI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STU_GENDER" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STU_QUAL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STU_COURSE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STU_PHOTO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STU_MOBILE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STU_DOB" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STU_DOA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STU_HOB" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STU_HPASS_Y" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STU_HPER" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STU_HUNI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STU_HROLL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STU_IPASS_Y" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STU_IPER" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STU_IUNI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STU_IROLL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImgURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CityTable">
+    <Key>
+      <PropertyRef Name="CITY_ID" />
+    </Key>
+    <Property Name="CITY_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="S_C_ID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="S_s_ID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CITY_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CountryTable">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CourseTable">
+    <Key>
+      <PropertyRef Name="COURSE_ID" />
+    </Key>
+    <Property Name="COURSE_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="s_c_id" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="COURSE_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="COURSE_FEES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="FeesTable">
+    <Key>
+      <PropertyRef Name="FEES_ID" />
+    </Key>
+    <Property Name="FEES_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FEES_ST_ID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FEES_AMOUNT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FEES_DATE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="QualificationTable">
+    <Key>
+      <PropertyRef Name="QualificationID" />
+    </Key>
+    <Property Name="QualificationID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Qualification" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StateTable">
+    <Key>
+      <PropertyRef Name="STATE_ID" />
+    </Key>
+    <Property Name="STATE_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CO_S_ID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="STATE_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StudentTable">
+    <Key>
+      <PropertyRef Name="f_name" />
+    </Key>
+    <Property Name="f_name" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="l_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="mobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="u_id" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="c_password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="EduCareServerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AdminTables" EntityType="Self.AdminTable" />
+    <EntitySet Name="AdmissionTables" EntityType="Self.AdmissionTable" />
+    <EntitySet Name="CityTables" EntityType="Self.CityTable" />
+    <EntitySet Name="CountryTables" EntityType="Self.CountryTable" />
+    <EntitySet Name="CourseTables" EntityType="Self.CourseTable" />
+    <EntitySet Name="FeesTables" EntityType="Self.FeesTable" />
+    <EntitySet Name="QualificationTables" EntityType="Self.QualificationTable" />
+    <EntitySet Name="StateTables" EntityType="Self.StateTable" />
+    <EntitySet Name="StudentTables" EntityType="Self.StudentTable" />
+  </EntityContainer>
+</Schema>

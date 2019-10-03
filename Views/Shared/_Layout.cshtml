@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Educare Application @DateTime.Now.Year</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/Site.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  bg-primary-second border-bottom   mb-3 fixed-top">
+        <div class="container-fluid">
+
+            <a class="navbar-brand text-light closemanue" asp-area="" asp-controller="Home" asp-action="Index"><span class="fa fa-desktop"></span> Student Registration Application</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse">
+
+                <ul class="navbar-nav flex-grow-1">
+                    @if (HttpContext.Current.User.Identity.Name != "")
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="~/Registration/Dashboard"><span class="fa fa-home"></span> Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="~/Registration/Dashboard">
+                                <span class="fa fa-redo"> Refresh </span>
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="~/Registration/GenerateRegistration">
+                                <span class="fa fa-user-plus"> Add New Student </span>
+                            </a>
+
+                        </li>
+                    }
+                </ul>
+
+                <div class="my-2 my-md-0">
+                    <ul class="navbar-nav mr-auto">
+                        @if (HttpContext.Current.User.Identity.Name != "")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="#"><span class="fa fa-user"></span> Welcome: @User.Identity.Name</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="~/LoginManager/RemoveUserIdentity"><span class="fa fa-lock"></span> Logout</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="#"><span class="fa fa-user"></span> Welcome:User</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="~/LoginManager/AuthenticateUserIdentity"><span class="fa fa-lock"></span> Login</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+</header>
+<div class="container body-content">
+    @RenderBody()
+    <div class="loader" id="isloading" style="display: none;">
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw loaderalignment"></i>
+        <br>
+        <span class="sr-only">Loading...</span>
+        <span id="lodertext">Loading...</span>
+    </div>
+
+
+    <hr/>
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Student Registration App</p>
+    </footer>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", false)
+</body>
+</html>

@@ -1,0 +1,289 @@
+﻿@model IEnumerable<EducareApplication.EducareService.AdmissionTable>
+
+@{
+    ViewBag.Title = "Dashbboard";
+}
+
+
+<div class="card" style="margin-top: 100px;">
+    <div class="card-body">
+
+
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="card-title"><span class="fa fa-desktop"></span> Dashboard</h2>
+            </div>
+            <div class="col-lg-6 text-lg-right">
+
+                <a href="#" class="btn btn-sm btn-success" onclick="$('#isloading').show(), setTimeout(function() { window.location.reload(true) }, 1000)"><span class="fa fa-redo"></span> Refresh Data</a>
+
+                <a href="~/Registration/GenerateRegistration" onclick="$('#isloading').show()" class="btn btn-sm btn-primary"><span class="fa fa-user-plus"></span>Register Student</a>
+            </div>
+        </div>
+        <div class=" dropdown-divider"></div>
+
+        @using (Html.BeginForm("AdmissionFilter", "Registration", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            ;
+            <div >
+
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <input type="number" class="form-control" name="registrationid" placeholder="Serch Registration Id"/>
+                            </div>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" name="studentName" id="textname" onmouseover="$('#textname').val() = '';" value="Enter Student Name" placeholder="Serch By Student Name"/>
+                            </div>
+                            <div class="col-lg-4 text-lg-right">
+                                <button class="btn btn-sm btn-dark " onclick="$('#isloading').show(), $('#lodertext').html('Searching...')"><span class="fa fa-check"></span> Search</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+        <br/>
+        @if (Model != null)
+        {
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>
+                            Photo
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.STU_NAME)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.STU_CITY)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.STU_STATE)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.STU_NATI)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.STU_GENDER)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.STU_MOBILE)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.STU_DOA)
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+
+                                @if (item.ImgURL != null)
+                                {
+                                    <img src="@item.ImgURL" alt="Alternate Text" class="card-img-custom"/>
+                                }
+                                else
+
+                                {
+                                    <img src="~/Images/eiffel-tower-wallpaper-4k-476931.jpg" alt="Alternate Text" class="card-img-custom"/>
+                                }
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.STU_NAME)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.STU_CITY)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.STU_STATE)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.STU_NATI)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.STU_GENDER)
+                            </td>
+
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.STU_MOBILE)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.STU_DOA)
+                            </td>
+
+                            <td>
+                                @Html.ActionLink(".", "AdmissionPageGenerater", new {Registrationid = item.STU_ID}, new {@class = "btn btn-sm btn-outline-info fa fa-eye", id = "FormGenerater"}) |
+
+                                @Html.ActionLink(".", "DeteteStudent", new {postid = item.STU_ID}, new {@class = "btn btn-sm btn-outline-danger fa fa-trash"})
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-info">
+                <div class="alert-heading">
+                    <span fa fa-databse></span> There Is now Record in DataBase
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<script>
+    $("#FormGenerater").click(function() {
+        $('#isloading').show(), $('#lodertext').html('Generating registration form...');
+    });
+
+    $(document).ready(function() {
+        $('#CountryDDL').change(function() {
+            $.ajax({
+                type: "post",
+                url: "/Registration/GetState",
+                data: { CountryId: $('#CountryDDL').val() },
+                datatype: "json",
+                traditional: true,
+                success: function(data) {
+                    var State = "<select id='StateDDL'>";
+                    State = State + '<option value="">Please select State</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        State = State + '<option value=' + data[i].Value + '>' + data[i].Text + '</option>';
+                    }
+                    State = State + '</select>';
+                    $('#StateDDL').html(State);
+                }
+            });
+        });
+
+
+        $('#StateDDL').change(function() {
+            $.ajax({
+                type: "post",
+                url: "/Registration/GetCity",
+                data: { Stateid: $('#StateDDL').val() },
+                datatype: "json",
+                traditional: true,
+                success: function(data) {
+                    var City = "<select id='CityDDL'>";
+                    City = City + '<option value="">Please select City</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        City = City + '<option value=' + data[i].Value + '>' + data[i].Text + '</option>';
+                    }
+                    City = City + '</select>';
+                    $('#CityDDL').html(City);
+                }
+            });
+        });
+
+
+        $('#QualificationDDL').change(function() {
+
+            $.ajax({
+                type: "post",
+                url: "/Registration/GetCourse",
+                data: { CourseId: $('#QualificationDDL').val() },
+                datatype: "json",
+                traditional: true,
+                success: function(data) {
+                    var Course = "<select id='CourseDDL'>";
+                    Course = Course + '<option value="">Please select Course</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        Course = Course + '<option value=' + data[i].Value + '>' + data[i].Text + '</option>';
+                    }
+                    Course = Course + '</select>';
+                    $('#CourseDDL').html(Course);
+                }
+            });
+        });
+
+    });
+
+    $(document).ready(function() {
+        jQuery.noConflict(true);
+        $('.datepicker').datepicker({
+            format: 'mm/dd/yyyy',
+            autoclose: true,
+            leftArrow: '&laquo;',
+            rightArrow: '&raquo;',
+
+
+        });
+
+        $('.date').datepicker({
+            minViewMode: 2,
+            format: 'yyyy',
+            autoclose: true,
+        });
+    });
+
+    $('#printbtn').click(function() {
+        $('#PDFbtn').show();
+        $("#pdfpreview").hide();
+        setTimeout(function() { window.print() }, 1000);
+    });
+
+    $("#PDFbtn").click(function() {
+        $('#isloading').show(), $('#lodertext').html('Generating portable document file...');
+        setTimeout(function() {
+                $("#pdfpreview").slideToggle();
+                $("#registrationform").slideToggle();
+                $('#isloading').hide();
+                $('#PDFbtn').hide();
+
+
+            },
+            4000);
+    });
+    $("#showform").click(function() {
+        $("#pdfpreview").slideToggle();
+        $("#registrationform").slideToggle();
+    });
+
+
+    $("#ZoomIn").click(
+        function(event) {
+
+            $("#pdfframe").width(
+                $("#pdfframe").width() * 1.1
+            );
+
+
+        });
+
+
+    $("#ZoomOut").click(
+        function(event) {
+
+            $("#pdfframe").width(
+                $("#pdfframe").width() * 0.9
+            );
+
+
+        });
+
+
+</script>

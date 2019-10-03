@@ -1,0 +1,163 @@
+﻿@model EducareApplication.EducareService.AdmissionTable
+
+@{
+    ViewBag.Title = "AdmissionPageGenerater";
+}
+
+
+
+<div class="card" style=" margin-top:100px;padding:50px;">
+    <h2 class="text-capitalize text-center"><strong><span class="fa fa-user"></span> &copy; Educare Application Registration Form</strong></h2>
+    <br />
+    <div class="row">
+        <div class="col-lg-6">
+            <img src="@Model.ImgURL.ToString()" class="card-img-top" alt="Student_Profile_Image">
+
+            <br />
+            <br />
+            <h5 class="text-justify"> <strong>@Model.STU_NAME.ToString() @Model.STU_F_NAME.ToString()</strong></h5>
+
+
+        </div>
+        <div class="col-lg-6 text-right" style="padding:50px;">
+
+            @if (ViewBag.Success != null)
+            {
+                <div class="alert alert-success">
+                    <div class="alert-heading"><strong><span class="fa fa-check"></span> Registration was successful.</strong> <button class="btn btn-sm btn-outline-success text-lg-left" style="margin-left:180px;" onclick="$('.alert').hide()"><span class="fa fa-trash"></span></button></div>
+                </div>
+            }
+            <Strong>Full Name: @Model.STU_NAME.ToString() @Model.STU_F_NAME.ToString()</Strong>
+            <br />
+            <Strong>Address: @Model.STU_CITY.ToString() @Model.STU_STATE.ToString()  @Model.STU_COUNTRY.ToString()</Strong>
+            <br />
+
+            <Strong>Contact Information : @Model.STU_MOBILE.ToString()</Strong>
+
+            <h4><Strong><span class="fa fa-user"></span> Student Registration Id  : @Html.DisplayFor(model => model.STU_ID)</Strong></h4>
+
+        </div>
+    </div>
+
+    <div class="card-body">
+
+        <h4 class="card-title text-center"><span class="fa fa-desktop"></span> Student Registration Information</h4>
+
+        <div class="dropdown-divider"></div>
+        <table class="table">
+            <thead>
+                <tr class="trcustomer">
+                    <th>Name</th>
+                    <th>FaterName </th>
+                    <th>@Html.DisplayNameFor(model => model.STU_PAR_ADD) </th>
+                    <th>@Html.DisplayNameFor(model => model.STU_CURR_ADD)</th>
+                    <th>@Html.DisplayNameFor(model => model.STU_CITY)</th>
+                    <th>@Html.DisplayNameFor(model => model.STU_STATE)</th>
+                    <th>@Html.DisplayNameFor(model => model.STU_COUNTRY)</th>
+                    <th>@Html.DisplayNameFor(model => model.STU_GENDER)</th>
+                    <th>@Html.DisplayNameFor(model => model.STU_QUAL)</th>
+                    <th>@Html.DisplayNameFor(model => model.STU_DOA)</th>
+                    <th>@Html.DisplayNameFor(model => model.STU_COURSE)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Html.DisplayFor(model => model.STU_NAME) </td>
+                    <td>@Html.DisplayFor(model => model.STU_F_NAME) </td>
+                    <td>
+                        @Html.DisplayFor(model => model.STU_PAR_ADD)
+                    </td>
+                    <td>@Html.DisplayFor(model => model.STU_CURR_ADD) </td>
+                    <td>@Html.DisplayFor(model => model.STU_CITY) </td>
+                    <td>@Html.DisplayFor(model => model.STU_STATE) </td>
+
+                    <td>@Html.DisplayFor(model => model.STU_COUNTRY) </td>
+                    <td>@Html.DisplayFor(model => model.STU_GENDER)</td>
+                    <td>
+                        @Html.DisplayFor(model => model.STU_QUAL)
+                    </td>
+                    <td>@Html.DisplayFor(model => model.STU_DOA)</td>
+                    <td>@Html.DisplayFor(model => model.STU_COURSE)</td>
+
+
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="table">
+            <thead>
+                <tr class="trcustomer">
+
+                    <th>@Html.DisplayNameFor(model => model.STU_HOB)</th>
+                    <th> Mobile</th>
+                    <th>@Html.DisplayNameFor(model => model.STU_NATI)</th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.STU_DOB)
+                    </th>
+                    <th>High School @Html.DisplayNameFor(model => model.STU_HPASS_Y) </th>
+                    <th>High School @Html.DisplayNameFor(model => model.STU_HPER)</th>
+                    <th>High School Board </th>
+                    <td> High School @Html.DisplayNameFor(model => model.STU_HROLL)</td>
+                    <td>Intermediate @Html.DisplayNameFor(model => model.STU_IPASS_Y)</td>
+                    <td>Intermediate @Html.DisplayNameFor(model => model.STU_IPER)</td>
+                    <td> Intermediate Board </td>
+                    <td>Intermediate @Html.DisplayNameFor(model => model.STU_IROLL)</td>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+                    <td> @Html.DisplayFor(model => model.STU_HOB)</td>
+                    <td> @Html.DisplayFor(model => model.STU_MOBILE)</td>
+                    <td> @Html.DisplayFor(model => model.STU_NATI)</td>
+                    <td> @Html.DisplayFor(model => model.STU_DOB) </td>
+                    <td> @Html.DisplayFor(model => model.STU_HPASS_Y)</td>
+                    <td> @Html.DisplayFor(model => model.STU_HPER) </td>
+                    <td> @Html.DisplayFor(model => model.STU_HUNI)</td>
+                    <td> @Html.DisplayFor(model => model.STU_HROLL)</td>
+                    <td> @Html.DisplayFor(model => model.STU_IPASS_Y) </td>
+                    <td> @Html.DisplayFor(model => model.STU_IPER)</td>
+                    <td> @Html.DisplayFor(model => model.STU_IUNI)</td>
+                    <td>@Html.DisplayFor(model => model.STU_IROLL) </td>
+
+                </tr>
+            </tbody>
+        </table>
+        <div class="dropdown-divider">   </div>
+        <p class="text-lg-right">
+            <a href="#" onclick="window.print();" class="btn btn-sm btn-primary"><span class="fa fa-print"></span> Print</a>
+            <a href="~/Registration/GeneratePDF" class="btn btn-sm btn-danger"><span class="fa fa-download"></span> Download PDF</a>
+            <a href="~/Registration/Dashboard" class="btn btn-sm btn-success"><span class="fa fa-home"></span> Home</a>
+        </p>
+
+
+
+        <div class="col-lg-12 text-capitalize text-center" style="margin-top:100px;">
+            <strong>This PDF was Generated by &copy; Educare Application on @DateTime.UtcNow.ToString() All right reserved.</strong>
+        </div>
+    </div>
+
+</div>
+<style>
+    .table {
+        font-size: 12px;
+    }
+
+    .trcustomer, .btn {
+        background: #2c3373;
+        color: white;
+        border-color: #2c3373;
+    }
+</style>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.navbar').hide();
+
+        $('.card').removeClass('container');
+
+        $('.card').css({ 'max-width': '700px;' })
+
+    });
+</script>

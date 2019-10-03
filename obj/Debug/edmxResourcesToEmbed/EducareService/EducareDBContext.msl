@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EduCareServerModelStoreContainer" CdmEntityContainer="EduCareServerEntities">
+    <EntitySetMapping Name="AdminTables">
+      <EntityTypeMapping TypeName="EduCareServerModel.AdminTable">
+        <MappingFragment StoreEntitySet="AdminTable">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdmissionTables">
+      <EntityTypeMapping TypeName="EduCareServerModel.AdmissionTable">
+        <MappingFragment StoreEntitySet="AdmissionTable">
+          <ScalarProperty Name="ImgURL" ColumnName="ImgURL" />
+          <ScalarProperty Name="STU_ID" ColumnName="STU_ID" />
+          <ScalarProperty Name="STU_NAME" ColumnName="STU_NAME" />
+          <ScalarProperty Name="STU_F_NAME" ColumnName="STU_F_NAME" />
+          <ScalarProperty Name="STU_PAR_ADD" ColumnName="STU_PAR_ADD" />
+          <ScalarProperty Name="STU_CURR_ADD" ColumnName="STU_CURR_ADD" />
+          <ScalarProperty Name="STU_CITY" ColumnName="STU_CITY" />
+          <ScalarProperty Name="STU_STATE" ColumnName="STU_STATE" />
+          <ScalarProperty Name="STU_COUNTRY" ColumnName="STU_COUNTRY" />
+          <ScalarProperty Name="STU_NATI" ColumnName="STU_NATI" />
+          <ScalarProperty Name="STU_GENDER" ColumnName="STU_GENDER" />
+          <ScalarProperty Name="STU_QUAL" ColumnName="STU_QUAL" />
+          <ScalarProperty Name="STU_COURSE" ColumnName="STU_COURSE" />
+          <ScalarProperty Name="STU_PHOTO" ColumnName="STU_PHOTO" />
+          <ScalarProperty Name="STU_MOBILE" ColumnName="STU_MOBILE" />
+          <ScalarProperty Name="STU_DOB" ColumnName="STU_DOB" />
+          <ScalarProperty Name="STU_DOA" ColumnName="STU_DOA" />
+          <ScalarProperty Name="STU_HOB" ColumnName="STU_HOB" />
+          <ScalarProperty Name="STU_HPASS_Y" ColumnName="STU_HPASS_Y" />
+          <ScalarProperty Name="STU_HPER" ColumnName="STU_HPER" />
+          <ScalarProperty Name="STU_HUNI" ColumnName="STU_HUNI" />
+          <ScalarProperty Name="STU_HROLL" ColumnName="STU_HROLL" />
+          <ScalarProperty Name="STU_IPASS_Y" ColumnName="STU_IPASS_Y" />
+          <ScalarProperty Name="STU_IPER" ColumnName="STU_IPER" />
+          <ScalarProperty Name="STU_IUNI" ColumnName="STU_IUNI" />
+          <ScalarProperty Name="STU_IROLL" ColumnName="STU_IROLL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CityTables">
+      <EntityTypeMapping TypeName="EduCareServerModel.CityTable">
+        <MappingFragment StoreEntitySet="CityTable">
+          <ScalarProperty Name="CITY_ID" ColumnName="CITY_ID" />
+          <ScalarProperty Name="S_C_ID" ColumnName="S_C_ID" />
+          <ScalarProperty Name="S_s_ID" ColumnName="S_s_ID" />
+          <ScalarProperty Name="CITY_NAME" ColumnName="CITY_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CountryTables">
+      <EntityTypeMapping TypeName="EduCareServerModel.CountryTable">
+        <MappingFragment StoreEntitySet="CountryTable">
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseTables">
+      <EntityTypeMapping TypeName="EduCareServerModel.CourseTable">
+        <MappingFragment StoreEntitySet="CourseTable">
+          <ScalarProperty Name="COURSE_ID" ColumnName="COURSE_ID" />
+          <ScalarProperty Name="s_c_id" ColumnName="s_c_id" />
+          <ScalarProperty Name="COURSE_NAME" ColumnName="COURSE_NAME" />
+          <ScalarProperty Name="COURSE_FEES" ColumnName="COURSE_FEES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeesTables">
+      <EntityTypeMapping TypeName="EduCareServerModel.FeesTable">
+        <MappingFragment StoreEntitySet="FeesTable">
+          <ScalarProperty Name="FEES_ID" ColumnName="FEES_ID" />
+          <ScalarProperty Name="FEES_ST_ID" ColumnName="FEES_ST_ID" />
+          <ScalarProperty Name="FEES_AMOUNT" ColumnName="FEES_AMOUNT" />
+          <ScalarProperty Name="FEES_DATE" ColumnName="FEES_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QualificationTables">
+      <EntityTypeMapping TypeName="EduCareServerModel.QualificationTable">
+        <MappingFragment StoreEntitySet="QualificationTable">
+          <ScalarProperty Name="QualificationID" ColumnName="QualificationID" />
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StateTables">
+      <EntityTypeMapping TypeName="EduCareServerModel.StateTable">
+        <MappingFragment StoreEntitySet="StateTable">
+          <ScalarProperty Name="STATE_ID" ColumnName="STATE_ID" />
+          <ScalarProperty Name="CO_S_ID" ColumnName="CO_S_ID" />
+          <ScalarProperty Name="STATE_NAME" ColumnName="STATE_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentTables">
+      <EntityTypeMapping TypeName="EduCareServerModel.StudentTable">
+        <MappingFragment StoreEntitySet="StudentTable">
+          <ScalarProperty Name="f_name" ColumnName="f_name" />
+          <ScalarProperty Name="l_name" ColumnName="l_name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="u_id" ColumnName="u_id" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="c_password" ColumnName="c_password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
