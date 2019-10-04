@@ -1,2 +1,2 @@
 # WebRegistrationApplication
- Registration student  online 
+ Register  student  online 
