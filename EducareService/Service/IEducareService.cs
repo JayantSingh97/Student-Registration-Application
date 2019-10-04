@@ -46,5 +46,7 @@ namespace EducareApplication.EducareService.Service
 
         IList<AdmissionTable> FilterAdmissions(string RegistrationId , string StudentName);
 
+        string GenerateExcelReport();
+
     }
 }

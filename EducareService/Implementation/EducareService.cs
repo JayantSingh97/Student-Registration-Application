@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using Rotativa.MVC;
@@ -15,6 +17,8 @@ namespace EducareApplication.Educareervice.Implementation
     public class Educareservice : Controller, IEducareService
     {
         private readonly LocalDbContext _localDbContext;
+        private readonly Educareservice _educareservice;
+
 
         public Educareservice(LocalDbContext localDbContext)
         {
@@ -228,6 +232,58 @@ namespace EducareApplication.Educareervice.Implementation
             return string.IsNullOrEmpty(RegistrationId) == false
                 ? _localDbContext.GetStudentData().Where(r => r.STU_ID == student).ToList()
                 : _localDbContext.GetStudentData().Where(name => name.STU_NAME.StartsWith(StudentName)).ToList();
+        }
+
+        string IEducareService.GenerateExcelReport()
+        {
+            var data = _localDbContext.GetStudentData();
+            return GenerateCSV(data.ToList());
+        }
+
+        private static string GenerateCSV<T>(List<T> list)
+        {
+            var sb = new StringBuilder();
+
+            var propInfos = typeof(T).GetProperties();
+            for (var i = 0; i <= propInfos.Length - 1; i++)
+            {
+                sb.Append(propInfos[i].Name);
+
+                if (i < propInfos.Length - 1) sb.Append(",");
+            }
+
+            sb.AppendLine();
+
+            for (var i = 0; i <= list.Count - 1; i++)
+            {
+                var item = list[i];
+                for (var j = 0; j <= propInfos.Length - 1; j++)
+                {
+                    var o = item.GetType().GetProperty(propInfos[j].Name)?.GetValue(item, null);
+                    if (o != null)
+                    {
+                        var value = o.ToString();
+
+                        if (value.Contains(",")) value = string.Concat("\"", value, "\"");
+
+                        if (value.Contains("\r")) value = value.Replace("\r", " ");
+
+                        if (value.Contains("\n")) value = value.Replace("\n", " ");
+
+                        if (value.Contains("\t")) value = value.Replace("\t", " ");
+
+                        if (value.Contains("\\")) value = value.Replace("\\", " ");
+
+                        sb.Append(value);
+                    }
+
+                    if (j < propInfos.Length - 1) sb.Append(",");
+                }
+
+                sb.AppendLine();
+            }
+
+            return sb.ToString();
         }
     }
 
@@ -468,10 +524,6 @@ namespace EducareApplication.Educareervice.Implementation
                 }
             };
         }
-
-
-
     }
-
 }
     

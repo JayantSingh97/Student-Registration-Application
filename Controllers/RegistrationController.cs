@@ -16,10 +16,7 @@ namespace EducareApplication.Controllers
     public class RegistrationController : Controller
     {
         private readonly IEducareService _Repository;
-
-        private readonly string ServcerPath =
-            ConfigurationManager.AppSettings["ServcerPath"];
-
+        private readonly string ServcerPath = ConfigurationManager.AppSettings["ServcerPath"];
         private readonly string URLPDF = ConfigurationManager.AppSettings["URLPDF"];
 
         public RegistrationController(IEducareService repository)
@@ -47,7 +44,6 @@ namespace EducareApplication.Controllers
             return View(nameof(Dashboard), _Repository.FilterAdmissions(registrationid, studentName));
         }
 
-
         [HttpGet]
         public ActionResult AdmissionPageGenerater(string Registrationid)
         {
@@ -57,9 +53,7 @@ namespace EducareApplication.Controllers
         [HttpGet]
         public ActionResult PDFPageGenerater(string RegistrationID)
         {
-            return RegistrationID != null
-                ? View(_Repository.FilterAdmissionsbyRegistrationID(RegistrationID))
-                : View();
+            return RegistrationID != null ? View(_Repository.FilterAdmissionsbyRegistrationID(RegistrationID)) : View();
         }
 
         [HttpGet]
@@ -68,6 +62,19 @@ namespace EducareApplication.Controllers
             return new UrlAsPdf(URLPDF + RegistrationID);
         }
 
+        [HttpGet]
+        public ActionResult GenerateExcelReport()
+        {
+            var csv = _Repository.GenerateExcelReport();
+            HttpContext.Response.Clear();
+            HttpContext.Response.AddHeader("content-disposition",
+                string.Format("attachment; filename={0}.csv", "Students_Report"));
+            HttpContext.Response.ContentType = "text/csv";
+            HttpContext.Response.AddHeader("Student_Report", "public");
+            HttpContext.Response.Write(csv);
+            HttpContext.Response.End();
+            return RedirectToAction(nameof(Dashboard));
+        }
 
         [HttpGet]
         public ActionResult GenerateRegistration()
@@ -93,16 +100,24 @@ namespace EducareApplication.Controllers
                 var FD = new FileInfo(path);
                 if (FD.Exists) FD.Delete();
                 STU_PHOTO.SaveAs(path);
-                var _newAdmission =
-                    _Repository.GenerateRegistration(_newAdmissionTable, ServcerPath + STU_PHOTO.FileName).ToList()
-                        .SingleOrDefault();
-                ViewBag.Success = true;
-                return View(nameof(AdmissionPageGenerater), _newAdmission);
+                if (_Repository != null)
+                {
+                    var list = new List<AdmissionTable>();
+                    var tables = _Repository.GenerateRegistration(_newAdmissionTable, ServcerPath + STU_PHOTO.FileName);
+                    for (var index = tables.Count - 1; index >= 0; index--)
+                    {
+                        var table = tables[index];
+                        list.Add(table);
+                    }
+
+                    var _newAdmission = list.SingleOrDefault();
+                    ViewBag.Success = true;
+                    return View(nameof(AdmissionPageGenerater), _newAdmission);
+                }
             }
 
             return RedirectToAction(nameof(Dashboard));
         }
-
 
         [HttpPost]
         [Route(nameof(Dashboard))]
