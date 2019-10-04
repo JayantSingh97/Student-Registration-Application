@@ -5,287 +5,300 @@
 }
 
 
-<div class="card" style=" margin-top:100px;" id="registrationform">
-    <div class="row">
-        <div class="col-lg-6">
-            <img src="@Model.ImgURL.ToString()" class="card-img-top" alt="student_Profile_Image">
+<div class="card" style="margin-top: 100px;" id="registrationform">
+<div class="row">
+    <div class="col-lg-6">
+        <img src="@Model.ImgURL.ToString()" class="card-img-top" alt="student_Profile_Image">
 
-            <br />
-            <br />
-            <strong class="text-justify" style="margin-left:10px;"> <strong>@Model.STU_NAME.ToString() @Model.STU_F_NAME.ToString()</strong></strong>
+        <br/>
+        <br/>
+        <strong class="text-justify" style="margin-left: 10px;">
+            <strong>@Model.STU_NAME.ToString() @Model.STU_F_NAME.ToString()</strong>
+        </strong>
 
-        </div>
-        <div class="col-lg-6 text-right" style="padding:50px;">
-
-            @if (ViewBag.Success != null)
-            {
-                <div class="alert alert-success">
-                    <div class="alert-heading"><strong><span class="fa fa-check"></span> Registration was successful.</strong> <button class="btn btn-sm btn-outline-success text-lg-left" style="margin-left:180px;" onclick="$('.alert').hide()"><span class="fa fa-trash"></span></button></div>
-                </div>
-            }
-
-            <Strong> Full Name: @Model.STU_NAME.ToString() @Model.STU_F_NAME.ToString()</Strong>
-            <br />
-            <Strong>Address: @Model.STU_CITY.ToString() @Model.STU_STATE.ToString()  @Model.STU_COUNTRY.ToString()</Strong>
-            <br />
-
-            <Strong>Contact Information : @Model.STU_MOBILE.ToString()</Strong>
-
-            <div class=" dropdown-divider"></div>
-            <h3><Strong><span class="fa fa-user"></span> Student Registration Id  : @Html.DisplayFor(model => model.STU_ID)</Strong></h3>
-
-        </div>
     </div>
+    <div class="col-lg-6 text-right" style="padding: 50px;">
 
-    <div class="card-body">
-
-
-
-
-        <h4 class="card-title text-center"><span class="fa fa-desktop"></span> Student Registration Form</h4>
-
-        <div class="dropdown-divider">   </div>
-
-        <br />
-        <h6 class="text-capitalize"><strong><span class="fa fa-user"></span> Personal Information</strong></h6>
-        <div class="dropdown-divider">   </div>
-
-        <div class="row">
-            <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
-                @Html.DisplayNameFor(model => model.STU_NAME) :
-
+        @if (ViewBag.Success != null)
+        {
+            <div class="alert alert-success">
+                <div class="alert-heading">
+                    <strong><span class="fa fa-check"></span> Registration was successful.</strong>
+                    <button class="btn btn-sm btn-outline-success text-lg-left" style="margin-left: 180px;" onclick="$('.alert').hide()">
+                        <span class="fa fa-trash"></span>
+                    </button>
+                </div>
             </div>
-            <div class="col-lg-4 col-sm-4 col-md-4">
-                @Html.DisplayFor(model => model.STU_NAME)
-            </div>
-            <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
-                @Html.DisplayNameFor(model => model.STU_F_NAME) :
+        }
 
-            </div>
-            <div class="col-lg-4 col-sm-4 col-md-4">
-                @Html.DisplayFor(model => model.STU_F_NAME)
-            </div>
-        </div>
+        <Strong> Full Name: @Model.STU_NAME.ToString() @Model.STU_F_NAME.ToString()</Strong>
+        <br/>
+        <Strong>Address: @Model.STU_CITY.ToString() @Model.STU_STATE.ToString() @Model.STU_COUNTRY.ToString()</Strong>
+        <br/>
 
-        <div class="row">
-            <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
-                @Html.DisplayNameFor(model => model.STU_PAR_ADD) :
+        <Strong>Contact Information : @Model.STU_MOBILE.ToString()</Strong>
 
-            </div>
-            <div class="col-lg-4 col-sm-4 col-md-4">
-                @Html.DisplayFor(model => model.STU_PAR_ADD)
-            </div>
-            <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
-                @Html.DisplayNameFor(model => model.STU_CURR_ADD) :
+        <div class=" dropdown-divider"></div>
+        <h3>
+            <Strong><span class="fa fa-user"></span> Student Registration Id : @Html.DisplayFor(model => model.STU_ID)</Strong>
+        </h3>
 
-
-            </div>
-            <div class="col-lg-4 col-sm-4 col-md-4">
-                @Html.DisplayFor(model => model.STU_CURR_ADD)
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
-
-                @Html.DisplayNameFor(model => model.STU_CITY) :
-
-            </div>
-            <div class="col-lg-4 col-sm-4 col-md-4">
-                @Html.DisplayFor(model => model.STU_CITY)
-            </div>
-            <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
-
-                @Html.DisplayNameFor(model => model.STU_STATE) :
-
-            </div>
-            <div class="col-lg-4 col-sm-4 col-md-4">
-                @Html.DisplayFor(model => model.STU_STATE)
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
-                @Html.DisplayNameFor(model => model.STU_COUNTRY) :
-
-            </div>
-            <div class="col-lg-4 col-sm-4 col-md-4">
-                @Html.DisplayFor(model => model.STU_COUNTRY)
-            </div>
-            <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
-                @Html.DisplayNameFor(model => model.STU_NATI) :
-
-
-            </div>
-            <div class="col-lg-4 col-sm-4 col-md-4">
-                @Html.DisplayFor(model => model.STU_NATI)
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
-                @Html.DisplayNameFor(model => model.STU_GENDER) :
-
-            </div>
-            <div class="col-lg-4 col-sm-4 col-md-4">
-                @Html.DisplayFor(model => model.STU_GENDER)
-            </div>
-            <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
-
-                @Html.DisplayNameFor(model => model.STU_QUAL) :
-
-
-            </div>
-            <div class="col-lg-4 col-sm-4 col-md-4">
-                @Html.DisplayFor(model => model.STU_QUAL)
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
-                @Html.DisplayNameFor(model => model.STU_COURSE) :
-
-            </div>
-            <div class="col-lg-4 col-sm-4 col-md-4">
-
-                @Html.DisplayFor(model => model.STU_COURSE)
-            </div>
-            <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
-                @Html.DisplayNameFor(model => model.STU_PHOTO) :
-
-
-            </div>
-            <div class="col-lg-4 col-sm-4 col-md-4">
-                @Html.DisplayFor(model => model.STU_PHOTO)
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
-                @Html.DisplayNameFor(model => model.STU_MOBILE) :
-
-
-            </div>
-            <div class="col-lg-4 col-sm-4 col-md-4">
-                @Html.DisplayFor(model => model.STU_MOBILE)
-            </div>
-            <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
-
-                @Html.DisplayNameFor(model => model.STU_DOB) :
-
-            </div>
-            <div class="col-lg-4 col-sm-4 col-md-4">
-                @Html.DisplayFor(model => model.STU_DOB)
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
-                @Html.DisplayNameFor(model => model.STU_DOA) :
-
-
-            </div>
-            <div class="col-lg-4 col-sm-4 col-md-4">
-                @Html.DisplayFor(model => model.STU_DOA)
-            </div>
-            <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
-
-                @Html.DisplayNameFor(model => model.STU_HOB) :
-
-
-            </div>
-            <div class="col-lg-4 col-sm-4 col-md-4">
-                @Html.DisplayFor(model => model.STU_HOB)
-            </div>
-        </div>
-
-        <br />
-        <h6 class="text-capitalize"><strong><span class="fa fa-graduation-cap"></span> High School Information</strong></h6>
-        <div class="dropdown-divider"></div>
-        <div class="row">
-            <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
-
-                @Html.DisplayNameFor(model => model.STU_HPASS_Y) :
-
-            </div>
-            <div class="col-lg-4 col-sm-4 col-md-4">
-                @Html.DisplayFor(model => model.STU_HPASS_Y)
-            </div>
-            <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
-                @Html.DisplayNameFor(model => model.STU_HPER)  :
-
-            </div>
-            <div class="col-lg-4 col-sm-4 col-md-4">
-                @Html.DisplayFor(model => model.STU_HPER)
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
-                @Html.DisplayNameFor(model => model.STU_HUNI) :
-
-            </div>
-            <div class="col-lg-4 col-sm-4 col-md-4">
-                @Html.DisplayFor(model => model.STU_HUNI)
-            </div>
-            <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
-                @Html.DisplayNameFor(model => model.STU_HROLL) :
-
-            </div>
-            <div class="col-lg-4 col-sm-4 col-md-4">
-                @Html.DisplayFor(model => model.STU_HROLL)
-            </div>
-        </div>
-
-        <br />
-        <h6 class="text-capitalize"><strong><span class="fa fa-graduation-cap"></span>  Intermediate School Information</strong></h6>
-        <div class="dropdown-divider"></div>
-        <div class="row">
-            <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
-                @Html.DisplayNameFor(model => model.STU_IPASS_Y) :
-
-            </div>
-            <div class="col-lg-4 col-sm-4 col-md-4">
-                @Html.DisplayFor(model => model.STU_IPASS_Y)
-            </div>
-            <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
-                @Html.DisplayNameFor(model => model.STU_IPER) :
-            </div>
-            <div class="col-lg-4 col-sm-4 col-md-4">
-
-                @Html.DisplayFor(model => model.STU_IPER)
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
-
-                @Html.DisplayNameFor(model => model.STU_IUNI) :
-
-            </div>
-            <div class="col-lg-4 col-sm-4 col-md-4">
-                @Html.DisplayFor(model => model.STU_IUNI)
-            </div>
-            <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
-                @Html.DisplayNameFor(model => model.STU_IROLL) :
-
-            </div>
-            <div class="col-lg-4 col-sm-4 col-md-4">
-                @Html.DisplayFor(model => model.STU_IROLL)
-            </div>
-        </div>
-        <div class="dropdown-divider">   </div>
-        <p class="text-lg-right text-md-right text-sm-right">
-            <br />
-            <a href="#" id="printbtn" class="btn btn-sm btn-primary"><span class="fa fa-print"></span> Print</a>
-            <a href="#" id="PDFbtn" class="btn btn-sm btn-danger"><span class="fa fa-cogs"></span> Generate PDF</a>
-            <a href="~/Registration/Dashboard" class="btn btn-sm btn-success"><span class="fa fa-home"></span> Home</a>
-        </p>
     </div>
 </div>
-<div class="card" id="pdfpreview" style="padding:35px;margin-top:100px;display:none">
+
+<div class="card-body">
+
+
+<h4 class="card-title text-center"><span class="fa fa-desktop"></span> Student Registration Form</h4>
+
+<div class="dropdown-divider"> </div>
+
+<br/>
+<h6 class="text-capitalize">
+    <strong><span class="fa fa-user"></span> Personal Information</strong>
+</h6>
+<div class="dropdown-divider"> </div>
+
+<div class="row">
+    <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
+        @Html.DisplayNameFor(model => model.STU_NAME) :
+
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4">
+        @Html.DisplayFor(model => model.STU_NAME)
+    </div>
+    <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
+        @Html.DisplayNameFor(model => model.STU_F_NAME) :
+
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4">
+        @Html.DisplayFor(model => model.STU_F_NAME)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
+        @Html.DisplayNameFor(model => model.STU_PAR_ADD) :
+
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4">
+        @Html.DisplayFor(model => model.STU_PAR_ADD)
+    </div>
+    <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
+        @Html.DisplayNameFor(model => model.STU_CURR_ADD) :
+
+
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4">
+        @Html.DisplayFor(model => model.STU_CURR_ADD)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
+
+        @Html.DisplayNameFor(model => model.STU_CITY) :
+
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4">
+        @Html.DisplayFor(model => model.STU_CITY)
+    </div>
+    <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
+
+        @Html.DisplayNameFor(model => model.STU_STATE) :
+
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4">
+        @Html.DisplayFor(model => model.STU_STATE)
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
+        @Html.DisplayNameFor(model => model.STU_COUNTRY) :
+
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4">
+        @Html.DisplayFor(model => model.STU_COUNTRY)
+    </div>
+    <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
+        @Html.DisplayNameFor(model => model.STU_NATI) :
+
+
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4">
+        @Html.DisplayFor(model => model.STU_NATI)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
+        @Html.DisplayNameFor(model => model.STU_GENDER) :
+
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4">
+        @Html.DisplayFor(model => model.STU_GENDER)
+    </div>
+    <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
+
+        @Html.DisplayNameFor(model => model.STU_QUAL) :
+
+
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4">
+        @Html.DisplayFor(model => model.STU_QUAL)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
+        @Html.DisplayNameFor(model => model.STU_COURSE) :
+
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4">
+
+        @Html.DisplayFor(model => model.STU_COURSE)
+    </div>
+    <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
+        @Html.DisplayNameFor(model => model.STU_PHOTO) :
+
+
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4">
+        @Html.DisplayFor(model => model.STU_PHOTO)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
+        @Html.DisplayNameFor(model => model.STU_MOBILE) :
+
+
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4">
+        @Html.DisplayFor(model => model.STU_MOBILE)
+    </div>
+    <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
+
+        @Html.DisplayNameFor(model => model.STU_DOB) :
+
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4">
+        @Html.DisplayFor(model => model.STU_DOB)
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
+        @Html.DisplayNameFor(model => model.STU_DOA) :
+
+
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4">
+        @Html.DisplayFor(model => model.STU_DOA)
+    </div>
+    <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
+
+        @Html.DisplayNameFor(model => model.STU_HOB) :
+
+
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4">
+        @Html.DisplayFor(model => model.STU_HOB)
+    </div>
+</div>
+
+<br/>
+<h6 class="text-capitalize">
+    <strong><span class="fa fa-graduation-cap"></span> High School Information</strong>
+</h6>
+<div class="dropdown-divider"></div>
+<div class="row">
+    <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
+
+        @Html.DisplayNameFor(model => model.STU_HPASS_Y) :
+
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4">
+        @Html.DisplayFor(model => model.STU_HPASS_Y)
+    </div>
+    <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
+        @Html.DisplayNameFor(model => model.STU_HPER) :
+
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4">
+        @Html.DisplayFor(model => model.STU_HPER)
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
+        @Html.DisplayNameFor(model => model.STU_HUNI) :
+
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4">
+        @Html.DisplayFor(model => model.STU_HUNI)
+    </div>
+    <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
+        @Html.DisplayNameFor(model => model.STU_HROLL) :
+
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4">
+        @Html.DisplayFor(model => model.STU_HROLL)
+    </div>
+</div>
+
+<br/>
+<h6 class="text-capitalize">
+    <strong><span class="fa fa-graduation-cap"></span> Intermediate School Information</strong>
+</h6>
+<div class="dropdown-divider"></div>
+<div class="row">
+    <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
+        @Html.DisplayNameFor(model => model.STU_IPASS_Y) :
+
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4">
+        @Html.DisplayFor(model => model.STU_IPASS_Y)
+    </div>
+    <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
+        @Html.DisplayNameFor(model => model.STU_IPER) :
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4">
+
+        @Html.DisplayFor(model => model.STU_IPER)
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
+
+        @Html.DisplayNameFor(model => model.STU_IUNI) :
+
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4">
+        @Html.DisplayFor(model => model.STU_IUNI)
+    </div>
+    <div class="col-lg-2 col-sm-2 col-md-2 custom-font">
+        @Html.DisplayNameFor(model => model.STU_IROLL) :
+
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4">
+        @Html.DisplayFor(model => model.STU_IROLL)
+    </div>
+</div>
+<div class="dropdown-divider"> </div>
+<p class="text-lg-right text-md-right text-sm-right">
+    <br/>
+    <a href="#" id="printbtn" class="btn btn-sm btn-primary"><span class="fa fa-print"></span> Print</a>
+    <a href="#" id="PDFbtn" class="btn btn-sm btn-danger"><span class="fa fa-cogs"></span> Generate PDF</a>
+    <a href="~/Registration/Dashboard" class="btn btn-sm btn-success"><span class="fa fa-home"></span> Home</a>
+</p>
+</div>
+</div>
+<div class="card" id="pdfpreview" style="padding: 35px; margin-top: 100px; display: none">
 
 
     <div class="row">
@@ -294,32 +307,83 @@
         </div>
         <div class="col-lg-6 col-md-6 text-right">
 
-            <button class="btn btn-sm btn-primary" id="showform"><span class="fa fa-eye "> Show Form</span></button>
+            <button class="btn btn-sm btn-primary" id="showform">
+                <span class="fa fa-eye "> Show Form</span>
+            </button>
 
         </div>
     </div>
 
     <div class="row">
-        
-       <br />
+
+        <br/>
         <div class="col-lg-12 col-md-12 text-center">
             <button class="btn btn-sm btn-success" id="ZoomIn"><span class="fa fa-plus-circle"></span> ZoomIn</button>
-            <button class="btn btn-sm btn-danger" id="ZoomOut"><span class="fa fa-plus-circle ">ZoomOut</span></button>
+            <button class="btn btn-sm btn-danger" id="ZoomOut">
+                <span class="fa fa-plus-circle ">ZoomOut</span>
+            </button>
 
         </div>
     </div>
 
-    <div class="dropdown-divider">   </div>
+    <div class="dropdown-divider"> </div>
     <div class="card-body">
-        <div class="dropdown-divider">   </div>
+        <div class="dropdown-divider"> </div>
         <div class="table-responsive">
-            <iframe class="card-frame" id="pdfframe" style="width:-webkit-fill-available;height:500px;" src="~/Registration/GeneratePDF?RegistrationID=@Model.STU_ID"></iframe>
+            <iframe class="card-frame" id="pdfframe" style="width: -webkit-fill-available; height: 500px;" src="~/Registration/GeneratePDF?RegistrationID=@Model.STU_ID"></iframe>
         </div>
     </div>
 </div>
 
 
-
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 
 <script src="~/Scripts/EduccareAjaxService.js"></script>
+
+<script>
+    $('#printbtn').click(function () {
+        $('#PDFbtn').show();
+        $("#pdfpreview").hide();
+        setTimeout(function () { window.print() }, 1000);
+    });
+
+    $("#PDFbtn").click(function () {
+        $('#isloading').show(), $('#lodertext').html('Generating portable document file...');
+        setTimeout(function () {
+            $("#pdfpreview").slideToggle();
+            $("#registrationform").slideToggle();
+            $('#isloading').hide();
+            $('#PDFbtn').hide();
+        },
+            4000);
+    });
+    $("#showform").click(function () {
+        $("#pdfpreview").slideToggle();
+        $("#registrationform").slideToggle();
+    });
+
+
+    $("#ZoomIn").click(
+        function (event) {
+
+            $("#pdfframe").width(
+                $("#pdfframe").width() * 1.1
+            );
+
+
+        });
+
+    $("#ZoomOut").click(
+        function (event) {
+
+            $("#pdfframe").width(
+                $("#pdfframe").width() * 0.9
+            );
+
+
+        });
+
+    $("#FormGenerater").click(function () {
+        $('#isloading').show(), $('#lodertext').html('Generating registration form...');
+    });
+</script>
